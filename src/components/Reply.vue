@@ -21,7 +21,9 @@ export default {
   name: 'Reply',
   props: ['comment', 'id'],
   methods: {
-    changeIsReply () {
+    async changeIsReply () {
+      await this.$store.commit('changeIsReply', '')
+      this.$store.commit('changeReplyName', this.comment.name)
       this.$store.commit('changeIsReply', this.id)
     }
   }
