@@ -7,7 +7,7 @@
       <div class="flex flex-col items-start">
         <div class="flex gap-2 items-center">
           <div class="font-bold">{{ comment.name }}</div>
-          <div class="text-sm text-blue-500">{{ comment.createdAt }}</div>
+          <div class="text-sm text-blue-500">{{ time }}</div>
         </div>
         <div class="text-left">{{ comment.message }}</div>
         <button class="text-blue-500 mb-2 mt-2" @click="changeIsReply">Reply</button>
@@ -17,6 +17,8 @@
 </template>
 
 <script>
+import moment from 'moment'
+
 export default {
   name: 'Reply',
   props: ['comment', 'id'],
@@ -26,6 +28,11 @@ export default {
       await this.$store.commit('changeReplyName', this.comment.name)
       await this.$store.commit('changeIsReply', this.id)
       document.getElementById('message').focus()
+    }
+  },
+  computed: {
+    time () {
+      return moment(this.comment.createdAt).fromNow()
     }
   }
 }
