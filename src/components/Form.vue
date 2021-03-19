@@ -39,7 +39,7 @@
 <script>
 export default {
   name: 'Form',
-  props: ['field'],
+  props: ['field', 'id'],
   data () {
     return {
       name: '',
@@ -55,7 +55,12 @@ export default {
       this.message = ''
     },
     addReply () {
-      console.log('ggwp')
+      const { id, name, message } = this
+      const payload = { id, name, message }
+      this.$store.dispatch('addReply', payload)
+      this.name = ''
+      this.message = ''
+      this.$store.commit('changeIsReply', '')
     },
     cancel () {
       this.$store.commit('changeIsReply', '')

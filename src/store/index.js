@@ -43,6 +43,22 @@ export default new Vuex.Store({
       } catch (err) {
         console.log(err.response.data)
       }
+    },
+    async addReply (_, payload) {
+      const { id, name, message } = payload
+      try {
+        await axios({
+          method: 'PUT',
+          url: `/comments/${id}`,
+          data: {
+            name,
+            message
+          }
+        })
+        this.dispatch('fetchComment')
+      } catch (err) {
+        console.log(err.response.data)
+      }
     }
   }
 })
