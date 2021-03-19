@@ -6,11 +6,15 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    comments: []
+    comments: [],
+    isReply: ''
   },
   mutations: {
     insertComment (state, payload) {
       state.comments = payload
+    },
+    changeIsReply (state, payload) {
+      state.isReply = payload
     }
   },
   actions: {
