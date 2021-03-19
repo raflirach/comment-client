@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex justify-center bg-gray-100">
+  <div class="w-full h-full min-h-screen flex justify-center bg-gray-100">
     <div class="w-3/4 border bg-white flex flex-col px-14 py-8">
       <Form :field="'comment'"/>
       <Comment v-for="comment in comments" :key="comment.id" :comment="comment" />
