@@ -13,7 +13,7 @@
           <div class="text-left">{{ comment.message }}</div>
           <button class="text-blue-500 mb-2 mt-2" @click="changeIsReply">Reply</button>
           <!-- replies -->
-          <Reply v-for="(reply, i) in comment.replies" :key="i" :comment="reply" />
+          <Reply v-for="(reply, i) in comment.replies" :key="i" :comment="reply" :id="comment._id" />
           <Form v-if="isReply === comment._id" :id="comment._id" />
         </div>
       </div>

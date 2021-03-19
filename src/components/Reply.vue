@@ -10,7 +10,7 @@
           <div class="text-sm text-blue-500">{{ comment.createdAt }}</div>
         </div>
         <div class="text-left">{{ comment.message }}</div>
-        <button class="text-blue-500 mb-2 mt-2">Reply</button>
+        <button class="text-blue-500 mb-2 mt-2" @click="changeIsReply">Reply</button>
       </div>
     </div>
   </div>
@@ -19,7 +19,12 @@
 <script>
 export default {
   name: 'Reply',
-  props: ['comment']
+  props: ['comment', 'id'],
+  methods: {
+    changeIsReply () {
+      this.$store.commit('changeIsReply', this.id)
+    }
+  }
 }
 </script>
 
