@@ -34,7 +34,9 @@ export default {
     }
   },
   methods: {
-    changeIsReply () {
+    async changeIsReply () {
+      await this.$store.commit('changeIsReply', '')
+      this.$store.commit('changeReplyName', '')
       this.$store.commit('changeIsReply', this.comment._id)
     },
     cancel () {
