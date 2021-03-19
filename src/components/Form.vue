@@ -1,16 +1,16 @@
 <template>
   <div class="w-full">
-    <input
-      type="text"
-      v-model="name"
-      placeholder="name"
-      class="w-full border p-2 mb-2"/>
     <textarea
       type="text"
       v-model="message"
       placeholder="message"
       rows="4"
       class="w-full border p-2 mb-1"/>
+    <input
+      type="text"
+      v-model="name"
+      placeholder="name"
+      class="w-full border p-2 mb-2"/>
     <div class="flex gap-2 mb-4">
       <button
         v-if="field === 'comment'"
@@ -65,6 +65,14 @@ export default {
     cancel () {
       this.$store.commit('changeIsReply', '')
     }
+  },
+  computed: {
+    replyName () {
+      return this.$store.state.replyName
+    }
+  },
+  created () {
+    if (this.replyName) this.message += `@${this.replyName} `
   }
 }
 </script>
