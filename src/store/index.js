@@ -18,12 +18,28 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    async fetchComment ({ commit }, payload) {
+    async fetchComment ({ commit }) {
       try {
         const { data } = await axios({
           url: '/comments'
         })
         commit('insertComment', data)
+      } catch (err) {
+        console.log(err.response.data)
+      }
+    },
+    async addComment (_, payload) {
+      const { name, message } = payload
+      try {
+        await axios({
+          method: 'POST',
+          url: '/comments',
+          data: {
+            name,
+            message
+          }
+        })
+        this.dispatch('fetchComment')
       } catch (err) {
         console.log(err.response.data)
       }
