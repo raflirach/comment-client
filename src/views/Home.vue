@@ -1,18 +1,30 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="w-full h-full flex justify-center bg-gray-100">
+    <div class="w-3/4 border bg-white flex flex-col px-14 py-8">
+      <comment v-for="comment in comments" :key="comment.id" :comment="comment" />
+    </div>
   </div>
 </template>
 
 <script>
+import Comment from '../components/Comment.vue'
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
+  components: { Comment },
   name: 'Home',
-  components: {
-    HelloWorld
+  methods: {
+    fetchComment () {
+      this.$store.dispatch('fetchComment')
+    }
+  },
+  computed: {
+    comments () {
+      return this.$store.state.comments
+    }
+  },
+  created () {
+    this.fetchComment()
   }
 }
 </script>
