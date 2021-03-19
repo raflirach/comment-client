@@ -3,6 +3,7 @@
     <textarea
       type="text"
       v-model="message"
+      :id="field !== 'comment' ? 'message' : ''"
       placeholder="message"
       rows="4"
       class="w-full border p-2 mb-1"/>

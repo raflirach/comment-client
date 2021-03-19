@@ -36,8 +36,9 @@ export default {
   methods: {
     async changeIsReply () {
       await this.$store.commit('changeIsReply', '')
-      this.$store.commit('changeReplyName', '')
-      this.$store.commit('changeIsReply', this.comment._id)
+      await this.$store.commit('changeReplyName', '')
+      await this.$store.commit('changeIsReply', this.comment._id)
+      document.getElementById('message').focus()
     },
     cancel () {
       this.$emit('cancel')

@@ -23,8 +23,9 @@ export default {
   methods: {
     async changeIsReply () {
       await this.$store.commit('changeIsReply', '')
-      this.$store.commit('changeReplyName', this.comment.name)
-      this.$store.commit('changeIsReply', this.id)
+      await this.$store.commit('changeReplyName', this.comment.name)
+      await this.$store.commit('changeIsReply', this.id)
+      document.getElementById('message').focus()
     }
   }
 }
