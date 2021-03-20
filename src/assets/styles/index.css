@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.home-container {
+  @apply w-full h-full min-h-screen flex justify-center bg-gray-100;
+}
+
+.home-content {
+  @apply w-3/4 border bg-white flex flex-col px-14 py-8;
+}
+
+.comment-container {
+  @apply border-t flex flex-col items-start;
+}
+
+.comment-row {
+  @apply pt-4 flex w-full;
+}
+
+.comment-cols-1 {
+  @apply mr-2 flex-none;
+}
+
+.comment-cols-2 {
+  @apply flex flex-col items-start flex-grow;
+}
+
+.name-container {
+  @apply flex gap-2 items-center;
+}
+
+.btn-trans-blue {
+  @apply text-blue-500 mb-2 mt-2;
+}
+
+.input {
+  @apply w-full border p-2 mb-1;
+}
+
+.btn-blue {
+  @apply rounded px-2 py-1 text-white bg-blue-500;
+}
+
+.btn-gray {
+  @apply rounded px-2 py-1 text-white bg-gray-500;
+}
+
+.reply-container {
+  @apply flex flex-col items-start;
+}

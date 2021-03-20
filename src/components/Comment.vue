@@ -1,20 +1,37 @@
 <template>
   <div class="w-full">
-    <div class="border-t flex flex-col items-start">
-      <div class="pt-4 flex w-full">
-        <div class="mr-2 cols-1 flex-none">
-          <img src="https://practicalpython.yasoob.me/images/avatars/sample.jpg" alt="" class="w-14 h-14">
+    <div class="comment-container">
+      <div class="comment-row">
+        <div class="comment-cols-1">
+          <img
+            src="https://practicalpython.yasoob.me/images/avatars/sample.jpg"
+            alt="avatar"
+            class="w-14 h-14"
+          >
         </div>
-        <div class="flex flex-col items-start flex-grow">
-          <div class="flex gap-2 items-center">
+        <div class="comment-cols-2">
+          <div class="name-container">
             <div class="font-bold">{{ comment.name }}</div>
             <div class="text-sm text-blue-500">{{ time }}</div>
           </div>
           <div class="text-left">{{ comment.message }}</div>
-          <button class="text-blue-500 mb-2 mt-2" @click="changeIsReply">Reply</button>
+          <button
+            class="btn-trans-blue"
+            @click="changeIsReply"
+          >
+            Reply
+          </button>
           <!-- replies -->
-          <Reply v-for="(reply, i) in comment.replies" :key="i" :comment="reply" :id="comment._id" />
-          <Form v-if="isReply === comment._id" :id="comment._id" />
+          <Reply
+            v-for="(reply, i) in comment.replies"
+            :key="i"
+            :comment="reply"
+            :id="comment._id"
+          />
+          <Form
+            v-if="isReply === comment._id"
+            :id="comment._id"
+          />
         </div>
       </div>
     </div>

@@ -1,8 +1,12 @@
 <template>
-  <div class="w-full h-full min-h-screen flex justify-center bg-gray-100">
-    <div class="w-3/4 border bg-white flex flex-col px-14 py-8">
+  <div class="home-container">
+    <div class="home-content">
       <Form :field="'comment'"/>
-      <Comment v-for="comment in comments" :key="comment.id" :comment="comment" />
+      <Comment
+        v-for="comment in comments"
+        :key="comment.id"
+        :comment="comment"
+      />
     </div>
   </div>
 </template>

@@ -6,29 +6,29 @@
       :id="field !== 'comment' ? 'message' : ''"
       placeholder="message"
       rows="4"
-      class="w-full border p-2 mb-1"/>
+      class="input"/>
     <input
       type="text"
       v-model="name"
       placeholder="name"
-      class="w-full border p-2 mb-2"/>
-    <div class="flex gap-2 mb-4">
+      class="input"/>
+    <div class="flex gap-2 mb-4 mt-1">
       <button
         v-if="field === 'comment'"
-        class="rounded px-2 py-1 text-white bg-blue-500"
+        class="btn-blue"
         @click="addComment"
       >
         Comment
       </button>
       <button
         v-else
-        class="rounded px-2 py-1 text-white bg-blue-500"
+        class="btn-blue"
         @click="addReply"
       >
         Reply
       </button>
       <button
-        class="rounded px-2 py-1 text-white bg-gray-500"
+        class="btn-gray"
         @click="cancel"
       >
         Cancel
