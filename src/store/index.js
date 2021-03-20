@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from '../api/axios'
+import { createAlert } from '../helpers/createAlert'
+import { createToast } from '../helpers/createToast'
 
 Vue.use(Vuex)
 
@@ -44,8 +46,11 @@ export default new Vuex.Store({
           }
         })
         this.dispatch('fetchComment')
+        createToast('comment successfully')
       } catch (err) {
-        console.log(err.response.data)
+        const { errors } = err.response.data
+        const msg = Object.values(errors)
+        createAlert(msg, 'error')
       }
     },
     async addReply (_, payload) {
@@ -60,8 +65,11 @@ export default new Vuex.Store({
           }
         })
         this.dispatch('fetchComment')
+        createToast('reply successfully')
       } catch (err) {
-        console.log(err.response.data)
+        const { errors } = err.response.data
+        const msg = Object.values(errors)
+        createAlert(msg, 'error')
       }
     }
   }
